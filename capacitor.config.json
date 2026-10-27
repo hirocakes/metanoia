@@ -1,0 +1,12 @@
+{
+  "appId": "com.metanoia.game",
+  "appName": "METANOIA",
+  "webDir": "dist",
+  "android": {
+    "allowMixedContent": false,
+    "backgroundColor": "#0a0a14"
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

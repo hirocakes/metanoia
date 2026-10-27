@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="theme-color" content="#0a0a14" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="description" content="METANOIA — a 3D action-RPG. Hunt the Regrets, level up, transform." />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <title>METANOIA</title>
+</head>
+<body>
+  <canvas id="game"></canvas>
+
+  <!-- Damage numbers / floating text -->
+  <div id="floaters" aria-hidden="true"></div>
+
+  <!-- In-game HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-top">
+      <div class="hud-left">
+        <div class="portrait">
+          <div class="portrait-level"><span id="level-num">1</span></div>
+        </div>
+        <div class="bars">
+          <div class="bar hp"><div id="hp-fill" class="fill"></div><span id="hp-text" class="bar-text">100/100</span></div>
+          <div class="bar xp"><div id="xp-fill" class="fill"></div><span id="xp-text" class="bar-text">0/100</span></div>
+        </div>
+      </div>
+      <div class="hud-right">
+        <div class="quest" id="quest-box">
+          <span class="quest-label">Dissolve the Regrets</span>
+          <span class="quest-count"><b id="kill-count">0</b>/<span id="kill-target">8</span></span>
+        </div>
+        <div class="shards"><span class="shard-icon"></span><b id="shard-count">0</b></div>
+        <button id="pause-btn" class="icon-btn" aria-label="Pause">II</button>
+        <button id="mute-btn" class="icon-btn" aria-label="Sound">&#9835;</button>
+      </div>
+    </div>
+
+    <!-- Joystick zone (touch) -->
+    <div id="stick-zone">
+      <div id="stick-base"><div id="stick-knob"></div></div>
+    </div>
+
+    <!-- Action buttons -->
+    <div id="actions">
+      <button id="btn-skill" class="action-btn skill"><span class="glyph">M</span><span class="cd"></span></button>
+      <button id="btn-dash" class="action-btn dash"><span class="glyph">&#187;</span><span class="cd"></span></button>
+      <button id="btn-attack" class="action-btn attack"><span class="glyph">&#9876;</span><span class="cd"></span></button>
+    </div>
+
+    <div id="hint" class="hint"></div>
+    <div id="banner" class="banner hidden"></div>
+    <div id="damage-vignette"></div>
+  </div>
+
+  <!-- Title screen -->
+  <div id="title-screen" class="screen">
+    <div class="screen-inner">
+      <h1 class="logo">METANOIA</h1>
+      <p class="tagline">The self you refuse to face is the one that hunts you.</p>
+      <div class="menu">
+        <button id="btn-new" class="menu-btn primary">Begin</button>
+        <button id="btn-continue" class="menu-btn hidden">Continue</button>
+      </div>
+      <div class="controls-hint">
+        <p><b>Desktop:</b> WASD move &middot; drag to look &middot; click / J attack &middot; Shift dash &middot; K burst &middot; Space jump</p>
+        <p><b>Mobile:</b> left stick to move &middot; drag right side to look &middot; buttons to strike</p>
+      </div>
+      <p class="footnote">A playable vertical slice &middot; free to publish &middot; runs in any browser</p>
+    </div>
+  </div>
+
+  <!-- Pause -->
+  <div id="pause-screen" class="screen hidden">
+    <div class="screen-inner">
+      <h2>Paused</h2>
+      <div class="stats" id="pause-stats"></div>
+      <div class="menu">
+        <button id="btn-resume" class="menu-btn primary">Resume</button>
+        <button id="btn-restart" class="menu-btn">Restart</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Victory / Defeat -->
+  <div id="end-screen" class="screen hidden">
+    <div class="screen-inner">
+      <h2 id="end-title">Metanoia</h2>
+      <p id="end-text" class="tagline"></p>
+      <div class="stats" id="end-stats"></div>
+      <div class="menu">
+        <button id="btn-again" class="menu-btn primary">Play again</button>
+        <button id="btn-title" class="menu-btn">Title screen</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./src/main.js"></script>
+</body>
+</html>

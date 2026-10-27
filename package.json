@@ -1,0 +1,22 @@
+{
+  "name": "metanoia",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "METANOIA — a 3D action-RPG vertical slice for mobile and web",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@capacitor/core": "^8.5.3",
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^8.5.3",
+    "@capacitor/assets": "^3.0.5",
+    "@capacitor/cli": "^8.5.3",
+    "vite": "^7.1.0"
+  }
+}
